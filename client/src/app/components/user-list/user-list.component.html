@@ -1,0 +1,17 @@
+<div class="col-md-4" *ngFor= "let user of users ">
+ <div class="card text-center">
+     <div class="card-header bg-dark text-white d-flex justify-content-between aling-items-center">
+        {{user.id}}
+        <button class="btn btn-danger" (click)="deleteUser(user.id)">
+            <i class="far fa-trash-alt"></i>
+        </button>
+     </div>
+     <div class="card-body">
+        <p>{{user.nombre}}</p>
+        <p>{{user.apellido}}</p>
+        <p>{{user.fecha}}</p>
+        <a [routerLink]="['/user/edit/', user.id]" class="btn btn-info btn-block">Editar</a>
+     </div>
+ </div>
+ 
+</div>

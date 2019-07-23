@@ -1,0 +1,23 @@
+<div class="col-md-4 offset-md-4">
+    <div class="card">
+        <div class="card-body">
+            <form >
+                <div class="form-group">
+                    <input type="number" name="nit" placeholder="Nit" maxlength="9" class="form-control" autofocus [(ngModel)]="credito.nit">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="nombre" placeholder="nombre" class="form-control" autofocus [(ngModel)]="credito.nombre">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="salario" placeholder="Salario" class="form-control" autofocus [(ngModel)]="credito.salario">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="fecha" placeholder="Fecha de ingreso" class="form-control" autofocus [(ngModel)]="credito.fecha">
+                </div>
+                <button class="btn btn-success btn-block" (click)="validarCredito()">
+                    Solicitar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
