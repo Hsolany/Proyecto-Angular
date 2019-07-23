@@ -28,10 +28,7 @@ export class CreditoComponent implements OnInit {
     var mes = Number(val[1]);
     var dia = Number(val[2]);
     var hoy = new Date();
-  
-    var ano_hoy = hoy.getFullYear();
-    var mes_hoy= hoy.getMonth()+1;
-    var dia_hoy=hoy.getDay();
+    var hoy1 = new Date(ano, mes, dia);
     console.log('');
     if(this.credito.nit =='') {
       alert('Debe llenar el campo Nit');
@@ -51,8 +48,20 @@ export class CreditoComponent implements OnInit {
     }else if(this.credito.salario>100000000 || this.credito.salario<0 || this.credito.salario % 1 != 0){
       alert('La cantidad salarial es invalida');
       return false;
-    }else if(ano==ano_hoy && mes==mes_hoy && dia==dia_hoy){
-      alert('No puede acceder al credito, no cumple los requitos');
+    }else if(hoy.getTime()<=hoy1.getTime()){
+      alert('No puede acceder al credito, no cumple los requitos de tiempo');
+      return false;
+    }else if(hoy1.getTime()> 31556900000 + 31556900000/2){
+      alert('No puede acceder al credito, no cumple los requitos de tiempo');
+      return false;
+    }else if(this.credito.salario>800000 && this.credito.salario<1000000){
+      document.write("<h1>El credito aprovado es 5.000.000</h1>");
+      return false;
+    }else if(this.credito.salario>1000000 && this.credito.salario<4000000){
+      document.write("<h1>El credito aprovado es 20.000.000</h1>");
+      return false;
+    }else if(this.credito.salario>4000000){
+      document.write("<h1>El credito aprovado es 50.000.000</h1>");
       return false;
     }
   }
